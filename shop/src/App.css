@@ -1,0 +1,39 @@
+body{
+  /* background-color: #282c34; */
+  background-color: white;
+  color: black;
+}
+
+.min-height {  
+  min-height: 100vh;  
+}
+
+.min-width{
+  min-width: 450px
+}
+
+.custom-margin-top {
+  margin-top: 4.8rem;
+}
+
+.pt {
+  padding-top: 5em !important;
+}
+
+.overflow {
+  overflow: hidden !important;
+}
+
+td{
+  vertical-align: middle !important;
+  padding: 3em 0 !important;
+}
+
+#saveOrderText{
+  color: darkgray;
+  font-weight: 400;
+  font-size: 0.8rem;
+  left: 0;
+}
+
+

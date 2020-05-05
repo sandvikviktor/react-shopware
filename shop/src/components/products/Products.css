@@ -1,0 +1,13 @@
+.rating {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card-footer {
+    background: white;
+    color: #212121;
+}
+
+.pt{
+    padding-top: 5em !important;
+}
