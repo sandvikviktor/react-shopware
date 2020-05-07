@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { userLogin } from '../../store/actions/userActions'
@@ -11,13 +11,18 @@ export default function Login(props) {
     const userEmail = useRef()
     const userPassword = useRef()
 
-    if (isAuth)
+    useEffect(() => {
+        if (isAuth)
         props.history.replace('/')
+    }, [props, isAuth])
+
+    // if (isAuth)
+    //     props.history.replace('/')
 
     const loginSubmit = (e) => {
         e.preventDefault()
 
-        if(userEmail.current.value === '' && userPassword.current.value === '')
+        if(userEmail.current.value === '' || userPassword.current.value === '')
             return
 
         dispatch(userLogin({
@@ -44,7 +49,8 @@ export default function Login(props) {
                         type="email"
                         ref={userEmail}
                         className="form-control mb-4"
-                        placeholder="E-mail"
+                        placeholder="E-mail" 
+                        autoComplete="off"
                     />
 
                     <input
@@ -53,6 +59,7 @@ export default function Login(props) {
                         ref={userPassword}
                         className="form-control mb-4"
                         placeholder="Lösenord"
+                        autoComplete="off"
                     />
 
                     <div className="d-flex justify-content-around">

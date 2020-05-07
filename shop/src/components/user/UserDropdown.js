@@ -1,4 +1,5 @@
 import React from 'react'
+import '../navigation/Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { userLogout } from '../../store/actions/userActions'
@@ -14,7 +15,7 @@ export default function UserDropdown() {
       <div className="text-center">
          {
             isAuth ?
-            <ul className="list-group list-group-flush p-0">
+            <ul className="user-dropdown list-group list-group-flush p-0">
                <li className="list-group-item">
                   <Link to="/manage">
                      <div>

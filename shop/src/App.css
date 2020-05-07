@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
 body{
   /* background-color: #282c34; */
-  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500 !important;
+  background-color: rgb(255, 255, 255);
   color: black;
 }
 
@@ -36,4 +40,63 @@ td{
   left: 0;
 }
 
+#carousel{
+  width: 400px;
+  height: 400px;
+  /* width: 40%; */
+  /* padding: 20em; */
+  /* border-radius: 10em !important; */
+  
+}
+#nyheter{
+  /* background-color: rgb(187, 187, 187); */
+  color: rgb(37, 37, 37);
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  right: 0;
+  z-index: 10;
+}
+
+#landing{
+  background-color: rgb(245, 245, 245);
+}
+.carousel{
+  width: 400px;
+  height: 400px;
+  background: white !important;
+  /* border-radius: 50% !important; */
+  transition: 0.6s ease;
+  -webkit-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+  -moz-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+  box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+}
+/* .carousel:hover{
+  -webkit-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+  -moz-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+  box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+} */
+.slide{
+  background: white !important;
+}
+.carousel img{
+  margin-top: 3em;
+  padding: 2em;
+  background: white !important;
+}
+.carousel h5{
+  /* top: 1.5em;
+  left: 50%;
+  transform: translateX(-50%); */
+  /* margin-top: 2em !important; */
+  background: white;
+  margin: 0;
+}
+.control-dots{
+  padding-right: 2.5em;
+  /* padding-bottom: 3em; */
+}
+.control-dots .dot.selected{
+  background: rgb(255, 251, 251) !important;
+}
 

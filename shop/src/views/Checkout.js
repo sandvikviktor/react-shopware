@@ -1,5 +1,5 @@
 import '../App.css'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { saveOrder } from '../store/actions/orderActions'
 import CheckoutProduct from '../components/checkout/CheckoutProduct'
@@ -12,24 +12,25 @@ export default function Checkout() {
     const isAuth = useSelector(state => state.user.isAuthenticated)
     // const currentUser = useSelector(state => state.user.currentUser)
     
-    let userId = useRef()
-    let userName = useRef()
+    const product = {
+      userId: sessionStorage.getItem("currentUserId"),
+      userName: sessionStorage.getItem("currentUserName"),
+      order: shoppingCart,
+      total: shoppingCartTotalAmount
+    }
+    // let userId = sessionStorage.getItem("currentUserId")
+    // let userName = sessionStorage.getItem("currentUserName")
 
     const dispatch = useDispatch()
 
-    const save = () => {
-      dispatch(saveOrder({
-        userId: userId,
-        userName: userName,
-        order: shoppingCart,
-        total: shoppingCartTotalAmount
-      }))
+    const save = () => {      
+      dispatch(saveOrder(product))
     }
 
     useEffect(() => {
-      userId = sessionStorage.getItem("currentUserId")
-      userName = sessionStorage.getItem("currentUserName")      
-    },[userId, userName])
+      // userId = sessionStorage.getItem("currentUserId")
+      // userName = sessionStorage.getItem("currentUserName")      
+    },[])
 
     return (
         <div className="rounded bg-white min-height pt-5">

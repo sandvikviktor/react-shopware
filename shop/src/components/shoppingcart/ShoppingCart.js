@@ -39,7 +39,7 @@ export default function ShoppingCart() {
             </div>
             {
                shoppingCart.length < 1 ?
-               <button disabled className="btn btn-indigo">Gå till Kassan</button>
+               <button className="btn btn-indigo">Gå till Kassan</button>
                :  <Link to="/checkout" >
                      <button className="btn btn-indigo">Gå till Kassan</button>            
                   </Link>

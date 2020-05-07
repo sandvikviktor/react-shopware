@@ -50,9 +50,15 @@ export default (state = initState, action) => {
 
         case actionTypes().cart.delete:
             try {
+                state.shoppingcart.forEach(product => {
+                    product.quantity = 1
+                })
                 state.shoppingcart = state.shoppingcart.filter(product => product.id !== action.id)
                 state.totalCartQuantity = getTotalQuantity(state.shoppingcart)
                 state.totalCartAmount = getTotalAmount(state.shoppingcart)
+
+                // state.product.quantity = 1
+
 
                 localStorage.setItem('c_c218b83b09494a81bf7afe03e160b1cf', jwt.sign(state, secretKey))
             }
@@ -62,6 +68,10 @@ export default (state = initState, action) => {
 
         case actionTypes().cart.clear:
             try {
+                state.shoppingcart.forEach(product => {
+                    product.quantity = 1
+                })
+
                 state.shoppingcart = []
                 state.totalCartAmount = 0
                 state.totalCartQuantity = 0

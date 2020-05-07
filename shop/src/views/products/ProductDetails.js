@@ -19,9 +19,9 @@ export default function ProductDetails({match}) {
     
     if(product) {
         return (
-            <div className="container-fluid pt bg-white">
+            <div className="pt container-fluid bg-white ">
                 {/* <!--Section: Content--> */}
-                <section className="text-center">
+                <section className="text-center pt-5">
                 {/* <!-- Section heading --> */}
                 <h3 className="font-weight-bold mb-5">Product Details</h3>
     
@@ -30,7 +30,7 @@ export default function ProductDetails({match}) {
                     {/* <!--Carousel Wrapper--> */}
                     <div
                         id="carousel-thumb"
-                        className="carousel slide carousel-fade carousel-thumbnails"
+                        className="carousel-fade carousel-thumbnails"
                         data-ride="carousel"
                     >
                         {/* <!--Slides--> */}

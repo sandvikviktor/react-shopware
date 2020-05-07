@@ -1,4 +1,5 @@
 import React from 'react'
+import './Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ShoppingCart from '../shoppingcart/ShoppingCart'
@@ -9,14 +10,14 @@ export default function Navbar() {
     let cartQuantity = useSelector(state => state.cart.totalCartQuantity)
 
     return (
-        <nav className="mb-1 navbar navbar-expand-lg navbar-dark indigo fixed-top">
-            <Link to="/" className="navbar-brand mb-1">React Shopware</Link>
+        <nav className="mb-1 navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top">
+            <Link to="/" className="navbar-brand mb-1"><i className="fab fa-shopware mr-2"></i>React Shopware</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                 aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent-333">
-                <ul className="navbar-nav ml-auto">
+                <ul className="navbar-nav ">
                     <li className="nav-item">
                         <Link to="/products" className="nav-link">Alla Produkter</Link>
                     </li>
