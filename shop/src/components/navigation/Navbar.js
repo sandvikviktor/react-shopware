@@ -1,4 +1,5 @@
 import React from 'react'
+import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBIcon } from "mdbreact";
 import './Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -33,9 +34,9 @@ export default function Navbar() {
                 </ul>
 
                 <ul className="navbar-nav ml-auto nav-flex-icons ">
-                  {/* <!-- ShoppingCart --> */}
-                  <li className="nav-item dropdown">
-                      <a
+                    {/* <!-- ShoppingCart --> */}
+                    <li className="nav-item dropdown">
+                        {/* <a
                       href="!#"
                       className="nav-link mr-4"
                       type="button"
@@ -48,12 +49,21 @@ export default function Navbar() {
                       </a>
                       <div id="shopping-cart" className="dropdown-menu dropdown-menu-right z-depth-2 shopping-cart">
                         <ShoppingCart />
-                      </div>
-                  </li>
+                      </div> */}
 
-                  {/* <!-- UserSettings --> */}
-                  <li className="nav-item dropdown">
-                      <a
+                        <MDBDropdown>
+                            <MDBDropdownToggle nav caret>
+                                {cartQuantity} <MDBIcon icon="shopping-cart" />
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu right basic className="dropdown-default shopping-cart z-depth-2">
+                                <ShoppingCart />
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
+                    </li>
+
+                    {/* <!-- UserSettings --> */}
+                    <li className="nav-item dropdown">
+                        {/* <a
                       href="!#"
                       className="nav-link dropdown-toggle"
                       type="button"
@@ -65,8 +75,16 @@ export default function Navbar() {
                       </a>
                       <div className="dropdown-menu dropdown-menu-right z-depth-2 px-2">
                         <UserDropdown />
-                      </div>
-                  </li>
+                      </div> */}
+                        <MDBDropdown>
+                            <MDBDropdownToggle nav caret>
+                                <i className="fas fa-user"></i>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu right basic className="dropdown-default z-depth-2 px-2">
+                                <UserDropdown />
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
+                    </li>
                 </ul>
             </div>
         </nav>

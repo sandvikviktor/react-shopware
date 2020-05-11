@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function ProductsCard({ product }) {
@@ -9,7 +9,6 @@ export default function ProductsCard({ product }) {
 
   return (
     <div className="col-lg-3 col-md-12 mb-4">
-      {/* <!-- Card --> */}
       <div className="card card-ecommerce">
         <div className="view overlay">
           <img src={product.image} className="img-fluid" alt="" />
@@ -30,7 +29,6 @@ export default function ProductsCard({ product }) {
           </div>
         </div>
       </div>
-      {/* <!-- Card --> */}
     </div>
   )
 

@@ -9,8 +9,8 @@ export const userRegister = (user) => {
         return axios.post('http://localhost:9999/api/users/register', user)
             .then(res => {
                 if (res.status === 201) {
-                   console.log('Success!');
-                   history.replace('/login')
+                    console.log('Success!');
+                    history.push('/login')
                 }
             })
     }
@@ -21,21 +21,19 @@ export const userLogin = (user) => {
         return axios.post('http://localhost:9999/api/users/login', { email: user.email, password: user.password })
             .then(res => {
                 if (res.status === 200) {
-                    dispatch(setUser(res.data.user))
-                    // history.push('/')
-                    // console.log(res.data.user);
+                    dispatch(setUser(res.data))
                 }
             })
     }
 }
 
-export const setUser = (userRes) => {
-    // console.log(userRes);
+export const setUser = (res) => {
     return {
         type: actionTypes().user.login,
         payload: {
             auth: true,
-            user: userRes
+            user: res.user,
+            token: res.token
         }
     }
 }

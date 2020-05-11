@@ -13,6 +13,7 @@ export default () => {
             register: 'USER_REG',
             login: 'USER_LOGIN',
             logout: 'USER_LOGOUT',
+            isAdmin: 'IS_ADMIN',
             isAuthenticated: 'IS_AUTHENTICATED'
         },
 

@@ -33,6 +33,7 @@ function App() {
 
           <ProtectedRoute exact path="/admin" component={Admin}/>
           <ProtectedRoute exact path="/admin/orders" component={AdminOrders}/>
+          
           <Route path="*" component={NotFound}/>
         </Switch>
       </div>

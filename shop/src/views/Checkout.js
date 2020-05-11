@@ -5,37 +5,33 @@ import { saveOrder } from '../store/actions/orderActions'
 import CheckoutProduct from '../components/checkout/CheckoutProduct'
 
 
-export default function Checkout() {
+export default function Checkout(props) {
 
     const shoppingCart = useSelector(state => state.cart.shoppingcart)
     const shoppingCartTotalAmount = useSelector(state => state.cart.totalCartAmount)
     const isAuth = useSelector(state => state.user.isAuthenticated)
-    // const currentUser = useSelector(state => state.user.currentUser)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      if (shoppingCart.length < 1)
+       props.history.replace('/products')
+    },[props, shoppingCart])
     
     const product = {
       userId: sessionStorage.getItem("currentUserId"),
       userName: sessionStorage.getItem("currentUserName"),
       order: shoppingCart,
       total: shoppingCartTotalAmount
-    }
-    // let userId = sessionStorage.getItem("currentUserId")
-    // let userName = sessionStorage.getItem("currentUserName")
-
-    const dispatch = useDispatch()
+    }    
 
     const save = () => {      
       dispatch(saveOrder(product))
     }
 
-    useEffect(() => {
-      // userId = sessionStorage.getItem("currentUserId")
-      // userName = sessionStorage.getItem("currentUserName")      
-    },[])
-
     return (
         <div className="rounded bg-white min-height pt-5">
         <section className="dark-grey-text pt-2">
-          <div className="table-responsive overflow">
+          <div className="table-responsive">
             <table className="container-fluid table product-table mb-0">
               {/* <!-- Table head --> */}
               <thead className="mdb-color lighten-5 text-center">

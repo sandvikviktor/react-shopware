@@ -14,6 +14,7 @@
     width: 30em;
     padding-right: 0;
     padding-left: 1.5em;
+    padding-bottom: 5em;
 }
 
 
@@ -25,7 +26,7 @@
 }
 
 .overflow {
-    max-height: 20em;
+    max-height: 16em;
     overflow-y: scroll !important;
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import '../../views/user/Order.css'
+import'../../App.css'
 
 export default function SavedOrdersProduct({ orders, number }) {
     useEffect(() => {
@@ -8,8 +9,8 @@ export default function SavedOrdersProduct({ orders, number }) {
 
     return (
         <div className="order-item z-depth-1 position-relative">
-            <div className="m-auto overflow pb-5">
-                <h4 className="pt-2">Order {number}#</h4>
+            <div id="orderItem" className="m-auto overflow">
+                <h4 className="pt-3">Order {number}</h4>
                 {
                     orders.products.map(product => {
                         return (
