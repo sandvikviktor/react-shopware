@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBIcon } from "mdbreact";
 import './Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ShoppingCart from '../shoppingcart/ShoppingCart'
 import UserDropdown from '../user/UserDropdown'
+import AdminDropdown from '../user/AdminDropdown';
 
 export default function Navbar() {
 
-    let cartQuantity = useSelector(state => state.cart.totalCartQuantity)
+    const cartQuantity = useSelector(state => state.cart.totalCartQuantity)
+    let isAdmin = useSelector(state => state.user.isAdmin)
+    // let isAdmin = JSON.parse(sessionStorage.getItem('isAdmin'))
+    // useEffect(() => {
+    //     isAdmin = JSON.parse(sessionStorage.getItem('isAdmin'))
+    // }, [isAdmin])
+    // useEffect(() => {
+    //     isAdmin = isAdmin
+    // }, [isAdmin])
+    
 
     return (
         <nav className="mb-1 navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top">
@@ -36,21 +46,6 @@ export default function Navbar() {
                 <ul className="navbar-nav ml-auto nav-flex-icons ">
                     {/* <!-- ShoppingCart --> */}
                     <li className="nav-item dropdown">
-                        {/* <a
-                      href="!#"
-                      className="nav-link mr-4"
-                      type="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      >
-                      {cartQuantity} 
-                      <i className="fas fa-shopping-cart"></i>
-                      </a>
-                      <div id="shopping-cart" className="dropdown-menu dropdown-menu-right z-depth-2 shopping-cart">
-                        <ShoppingCart />
-                      </div> */}
-
                         <MDBDropdown>
                             <MDBDropdownToggle nav caret>
                                 {cartQuantity} <MDBIcon icon="shopping-cart" />
@@ -63,25 +58,16 @@ export default function Navbar() {
 
                     {/* <!-- UserSettings --> */}
                     <li className="nav-item dropdown">
-                        {/* <a
-                      href="!#"
-                      className="nav-link dropdown-toggle"
-                      type="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      >
-                      <i className="fas fa-user"></i>
-                      </a>
-                      <div className="dropdown-menu dropdown-menu-right z-depth-2 px-2">
-                        <UserDropdown />
-                      </div> */}
                         <MDBDropdown>
                             <MDBDropdownToggle nav caret>
                                 <i className="fas fa-user"></i>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu right basic className="dropdown-default z-depth-2 px-2">
-                                <UserDropdown />
+                                {
+                                   isAdmin 
+                                   ? <AdminDropdown />
+                                   : <UserDropdown />
+                                }                                
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </li>

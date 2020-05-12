@@ -9,11 +9,15 @@ import Login from './views/forms/Login'
 import Register from './views/forms/Register'
 import NotFound from './views/NotFound'
 import Home from './views/LandingPage'
-import ProtectedRoute from './routes/ProtectedRoute';
 import Admin from './views/admin/Admin';
 import AdminOrders from './views/admin/AdminOrders';
 import Orders from './views/user/Orders';
 import Manage from './views/user/Manage';
+
+import AdminRoute from './routes/AdminRoute';
+import AdminUserOrders from './views/admin/AdminUserOrders';
+import UserRoute from './routes/UserRoute';
+
 
 function App() {
 
@@ -28,11 +32,13 @@ function App() {
           <Route exact path="/checkout" component={Checkout}/>
           <Route exact path="/register" component={Register}/>
           <Route exact path="/login" component={Login}/>
-          <Route exact path="/orders" component={Orders}/>
-          <Route exact path="/manage" component={Manage}/>
 
-          <ProtectedRoute exact path="/admin" component={Admin}/>
-          <ProtectedRoute exact path="/admin/orders" component={AdminOrders}/>
+          <AdminRoute exact path="/admin" component={Admin}/>
+          <AdminRoute exact path="/admin/orders" component={AdminOrders}/>
+          <AdminRoute exact path="/admin/orders/user/:id" component={AdminUserOrders}/>
+
+          <UserRoute exact path="/orders" component={Orders}/>
+          <UserRoute exact path="/manage" component={Manage}/>
           
           <Route path="*" component={NotFound}/>
         </Switch>

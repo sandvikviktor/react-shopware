@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { userRegister } from '../../store/actions/userActions'
@@ -11,6 +11,11 @@ export default function Register() {
     const lastName = useRef()
     const email = useRef()
     const password = useRef()
+    const admin = useRef()
+
+    useEffect(() => {
+        console.log(admin.current.checked);
+    }, [admin])
 
 
     const regSubmit = (e) => {
@@ -19,12 +24,25 @@ export default function Register() {
         if(firstName.current.value === '' || lastName.current.value === '' || email.current.value === '' || password.current.value === '')
             return
 
-        dispatch(userRegister({
-             firstName: firstName.current.value,
-             lastName: lastName.current.value,
-             email: email.current.value,
-             password: password.current.value
-        }))
+    
+        if(admin.current.checked) {
+            dispatch(userRegister({
+                firstName: firstName.current.value,
+                lastName: lastName.current.value,
+                email: email.current.value,
+                role: 'admin',
+                password: password.current.value             
+           }))
+        } else {
+            dispatch(userRegister({
+                firstName: firstName.current.value,
+                lastName: lastName.current.value,
+                email: email.current.value,
+                role: 'user',
+                password: password.current.value             
+           }))
+        }
+
     }
 
     return (
@@ -66,7 +84,8 @@ export default function Register() {
                         ref={email}
                         type="text"
                         className="form-control mb-4"
-                        placeholder="E-mail"
+                        placeholder="E-mail" 
+                        autoComplete="off"
                     />
 
                     <input
@@ -76,6 +95,11 @@ export default function Register() {
                         className="form-control"
                         placeholder="Lösenord"
                     />
+
+                    <div className="custom-control custom-checkbox pt-4 mr-auto">
+                        <input name="admin" ref={admin} type="checkbox" className="custom-control-input" id="defaultUnchecked" />
+                        <label className="custom-control-label" htmlFor="defaultUnchecked">Admin</label>
+                    </div>
 
                     <button className="btn btn-indigo my-4 btn-block" type="submit">Skapa nytt konto</button>
                     <p>

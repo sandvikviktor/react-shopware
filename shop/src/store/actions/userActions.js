@@ -4,6 +4,8 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 
+
+// Registrerar en användare
 export const userRegister = (user) => {
     return dispatch => {
         return axios.post('http://localhost:9999/api/users/register', user)
@@ -16,6 +18,8 @@ export const userRegister = (user) => {
     }
 }
 
+
+// Loggar in användare
 export const userLogin = (user) => {
     return dispatch => {
         return axios.post('http://localhost:9999/api/users/login', { email: user.email, password: user.password })
@@ -26,7 +30,6 @@ export const userLogin = (user) => {
             })
     }
 }
-
 export const setUser = (res) => {
     return {
         type: actionTypes().user.login,
@@ -38,9 +41,49 @@ export const setUser = (res) => {
     }
 }
 
+
+// Loggar ut användare
 export const userLogout = () => {
     return {
         type: actionTypes().user.logout,
         payload: false
     }
 }
+
+
+// Hämta alla användare
+export const getUsers = () => {
+    return dispatch => {
+        return axios.get('http://localhost:9999/api/users')
+            .then(res => {
+                console.log(res.data);
+                dispatch(setUsers(res.data))
+            })
+    }
+}
+export const setUsers = (users) => {
+    return {
+        type: actionTypes().users.set,
+        payload: users
+    }
+}
+
+
+// Hämta en användare
+export const getUserById = (id) => {
+    console.log(id);
+    return dispatch => {
+        return axios.get('http://localhost:9999/api/users/' + id)
+        .then(res => {
+            console.log(res.data.user);
+            dispatch(setUserById(res.data.user))
+        })
+    }
+}
+export const setUserById = (user) => {
+    return {
+        type: actionTypes().users.setOne,
+        payload: user
+    }
+}
+

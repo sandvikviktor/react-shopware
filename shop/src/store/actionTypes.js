@@ -17,6 +17,11 @@ export default () => {
             isAuthenticated: 'IS_AUTHENTICATED'
         },
 
+        users: {
+            set: 'SET_USERS',
+            setOne: 'SET_ONE_USER'
+        },
+
         cart: {
             add: 'ADD_TO_CART',
             remove: 'REMOVE_FROM_CART',

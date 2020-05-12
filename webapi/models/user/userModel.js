@@ -32,6 +32,7 @@ exports.registerUser = (req, res) => {
                   firstName: req.body.firstName,
                   lastName: req.body.lastName,
                   email: req.body.email,
+                  role: req.body.role,
                   passwordHash: hash
                }
             )
@@ -80,7 +81,8 @@ exports.loginUser = (req, res) => {
                   user: {
                      id: user._id,
                      email: user.email,
-                     name: user.firstName
+                     name: user.firstName,
+                     role: user.role
                   }
                })
             }
@@ -110,7 +112,7 @@ exports.getUsers = (req, res) => {
 }
 
 exports.getUser = (req, res) => { 
-   userModel.findOne({ _id: req.params.id })
+   User.findOne({ _id: req.params.id })
    .then(user => {
 
       if(user === null)
@@ -128,7 +130,8 @@ exports.getUser = (req, res) => {
             id: user._id,
             firstName: user.firstName,
             lastName: user.lastName,
-            email: user.email
+            email: user.email,
+            role: user.role
          }
       })
    })

@@ -5,20 +5,13 @@ import { useSelector } from 'react-redux'
 export default function ProtectedRoute({ component: Component, ...rest }) {
 
     const isAuthenticated = useSelector(state => state.user.isAuthenticated)
-    const isAdmin = useSelector(state => state.user.isAdmin)
 
     return (
         <Route {...rest} render={props => {
 
-            if(isAuthenticated && isAdmin) {
+            if(isAuthenticated) {
                 return <Component {...props} />
-            } 
-
-            else if (isAuthenticated) {
-                return <Component {...props} />
-            } 
-
-            else {
+            } else {
                 return <Redirect to={{ pathname: "/login", state:{ from: props.location } }}/>
             }
 
