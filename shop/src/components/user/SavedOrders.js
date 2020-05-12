@@ -6,7 +6,7 @@ import SavedOrdersProduct from './SavedOrdersProduct'
 export default function SavedOrders() {
 
     const dispatch = useDispatch()
-    const savedOrders = useSelector(state => state.orders.orders)
+    const orderList = useSelector(state => state.orders.orders)
 
     const id = sessionStorage.getItem("currentUserId")
 
@@ -17,12 +17,10 @@ export default function SavedOrders() {
     return (
         <div id="orders" className="vh-100 w-100 container-fluid pt-4">
             <div className="rounded px-0 z-10">
-                {/* <!-- Shopping Cart table --> */}
                 <div className="order">
-                    {/* <OrderProductSaved v-for="order in getSavedOrders" :key="order._id" :order="order" /> */}
                     {
-                        savedOrders.map((orders, index) => {
-                            return (<SavedOrdersProduct orders={orders} key={orders._id} number={index + 1}/>)
+                        orderList.map((order, index) => {
+                            return (<SavedOrdersProduct order={order} key={order._id} number={index + 1}/>)
                         })
                     }
                 </div>

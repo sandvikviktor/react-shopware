@@ -1,6 +1,7 @@
 const mongodb = require('mongoose')
 const Order = require('./orderSchema')
 
+
 exports.saveOrder = (req, res) => {
    const order = new Order(
       {
@@ -8,7 +9,8 @@ exports.saveOrder = (req, res) => {
          userId: req.body.userId,
          userName: req.body.userName,
          products: req.body.order,
-         total: req.body.total
+         total: req.body.total,
+         status: req.body.status
       }
    )
    order.save()
@@ -39,6 +41,12 @@ exports.getOrder = (req, res) => {
    Order.find({ userId: req.params.id })
       .then(data => res.status(200).json(data))
       .catch(error => res.status(500).json(error))
+}
+
+exports.updateOrder = (req, res) => {
+   Order.findByIdAndUpdate({_id: req.params.id}, { status: "finished" })
+      .then(data => res.status(200).json(data))
+      .catch(error => res.status(400).json(error))
 }
 
 exports.deleteOrder = (req, res) => {

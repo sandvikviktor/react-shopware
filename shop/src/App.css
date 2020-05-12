@@ -53,6 +53,9 @@ td{
   padding: 3em 0 !important;
   overflow: hidden;
 }
+li {
+  list-style: none;
+}
 
 /* Carousel */
 #carousel{

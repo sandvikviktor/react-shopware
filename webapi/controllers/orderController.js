@@ -6,6 +6,7 @@ route.post('/saveorder', orderModel.saveOrder)
 route.get('/getorders', orderModel.getOrders)
 route.get('/getorders/:id', orderModel.getOrder)
 
+route.put('/updateorder/:id', orderModel.updateOrder)
 route.delete('/deleteorder/:id', orderModel.deleteOrder)
 
 module.exports = route

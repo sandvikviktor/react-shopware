@@ -14,9 +14,8 @@ import AdminOrders from './views/admin/AdminOrders';
 import Orders from './views/user/Orders';
 import Manage from './views/user/Manage';
 
-import AdminRoute from './routes/AdminRoute';
-import AdminUserOrders from './views/admin/AdminUserOrders';
-import UserRoute from './routes/UserRoute';
+import AdminUserOrderList from './views/admin/AdminUserOrderList';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 
 function App() {
@@ -33,12 +32,14 @@ function App() {
           <Route exact path="/register" component={Register}/>
           <Route exact path="/login" component={Login}/>
 
-          <AdminRoute exact path="/admin" component={Admin}/>
-          <AdminRoute exact path="/admin/orders" component={AdminOrders}/>
-          <AdminRoute exact path="/admin/orders/user/:id" component={AdminUserOrders}/>
+          {/* Admin Routes */}
+          <ProtectedRoute exact path="/admin" component={Admin}/>
+          <ProtectedRoute exact path="/admin/orders" component={AdminOrders}/>
+          <ProtectedRoute exact path="/admin/orders/user/:id" component={AdminUserOrderList}/>
 
-          <UserRoute exact path="/orders" component={Orders}/>
-          <UserRoute exact path="/manage" component={Manage}/>
+          {/* User Routes*/}
+          <ProtectedRoute exact path="/orders" component={Orders}/>
+          <ProtectedRoute exact path="/manage" component={Manage}/>
           
           <Route path="*" component={NotFound}/>
         </Switch>

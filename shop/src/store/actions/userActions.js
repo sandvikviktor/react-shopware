@@ -56,7 +56,6 @@ export const getUsers = () => {
     return dispatch => {
         return axios.get('http://localhost:9999/api/users')
             .then(res => {
-                console.log(res.data);
                 dispatch(setUsers(res.data))
             })
     }
@@ -75,7 +74,6 @@ export const getUserById = (id) => {
     return dispatch => {
         return axios.get('http://localhost:9999/api/users/' + id)
         .then(res => {
-            console.log(res.data.user);
             dispatch(setUserById(res.data.user))
         })
     }

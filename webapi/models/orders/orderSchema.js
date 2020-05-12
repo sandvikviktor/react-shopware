@@ -6,6 +6,7 @@ const orderSchema = mongodb.Schema({
     userName : {type: String, required: true},
     products: { type: Array, require: true },
     total: {type: String, required: true},
+    status: {type: String, required: true}
 })
 
 module.exports = mongodb.model("Order", orderSchema)

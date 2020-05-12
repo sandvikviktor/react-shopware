@@ -21,7 +21,8 @@ export default function Checkout(props) {
       userId: sessionStorage.getItem("currentUserId"),
       userName: sessionStorage.getItem("currentUserName"),
       order: shoppingCart,
-      total: shoppingCartTotalAmount
+      total: shoppingCartTotalAmount,
+      status: 'pending'
     }    
 
     const save = () => {      

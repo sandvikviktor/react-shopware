@@ -17,9 +17,11 @@ export default (state = initState, action) => {
     switch(action.type) {
         case actionTypes().user.login:
 
-            if(action.payload.user.role === 'admin')
+            if(action.payload.user.role === 'admin'){
+                state.isAdmin = action.payload.auth
                 sessionStorage.setItem('isAdmin', action.payload.auth)
-
+            }          
+            
             state.isAuthenticated = action.payload.auth
             state.currentUser = action.payload.user
             state.token = action.payload.token
@@ -35,8 +37,7 @@ export default (state = initState, action) => {
             state.isAdmin = action.payload
             state.currentUser = {}
             state.token = ''
-            // sessionStorage.setItem('isAuthenticated', state.isAuthenticated)
-            // sessionStorage.setItem('isAdmin', state.isAuthenticated)
+
             sessionStorage.removeItem('isAuthenticated')
             sessionStorage.removeItem('isAdmin')
             sessionStorage.removeItem("currentUserId")
