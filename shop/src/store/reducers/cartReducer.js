@@ -76,6 +76,7 @@ export default (state = initState, action) => {
                 state.totalCartAmount = 0
                 state.totalCartQuantity = 0
 
+                state.totalCartQuantity = getTotalQuantity(state.shoppingcart)
                 localStorage.removeItem('c_c218b83b09494a81bf7afe03e160b1cf')
             }
             catch {}

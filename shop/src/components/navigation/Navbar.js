@@ -1,34 +1,25 @@
 import React from 'react'
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBIcon } from "mdbreact";
-import './Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ShoppingCart from '../shoppingcart/ShoppingCart'
-import UserDropdown from '../user/UserDropdown'
-import AdminDropdown from '../user/AdminDropdown';
+import UserDropdown from './UserDropdown'
+import AdminDropdown from './AdminDropdown';
 
 export default function Navbar() {
 
     const cartQuantity = useSelector(state => state.cart.totalCartQuantity)
-    let isAdmin = useSelector(state => state.user.isAdmin)
-    // let isAdmin = JSON.parse(sessionStorage.getItem('isAdmin'))
-    // useEffect(() => {
-    //     isAdmin = JSON.parse(sessionStorage.getItem('isAdmin'))
-    // }, [isAdmin])
-    // useEffect(() => {
-    //     isAdmin = isAdmin
-    // }, [isAdmin])
-    
+    let isAdmin = useSelector(state => state.user.isAdmin)    
 
     return (
-        <nav className="mb-1 navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top">
-            <Link to="/" className="navbar-brand mb-1"><i className="fab fa-shopware mr-2"></i>React Shopware</Link>
+        <nav className="mb-1 navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top px-4">
+            <Link to="/" className="navbar-brand mb-1"><i className="fab fa-shopware mr-2"></i>Shopware</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                 aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent-333">
-                <ul className="navbar-nav ">
+                <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link to="/products" className="nav-link">Alla Produkter</Link>
                     </li>
@@ -43,7 +34,7 @@ export default function Navbar() {
                     </li>
                 </ul>
 
-                <ul className="navbar-nav ml-auto nav-flex-icons ">
+                <ul className="navbar-nav nav-flex-icons ml-auto">
                     {/* <!-- ShoppingCart --> */}
                     <li className="nav-item dropdown">
                         <MDBDropdown>

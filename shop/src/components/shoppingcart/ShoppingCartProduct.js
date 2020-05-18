@@ -1,5 +1,4 @@
 import React from 'react'
-import './Cart.css'
 import { useDispatch } from 'react-redux'
 import { addProductToCart, removeFromCart, deleteFromCart } from '../../store/actions/cartActions'
 

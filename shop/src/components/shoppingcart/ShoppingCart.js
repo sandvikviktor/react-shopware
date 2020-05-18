@@ -1,17 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Cart.css'
 import { useSelector } from 'react-redux'
 import ShoppingCartProduct from './ShoppingCartProduct'
-// import { checkOutCart } from '../../store/actions/cartActions'
 
 export default function ShoppingCart() {
 
-   // const dispatch = useDispatch()
-
    const shoppingCart = useSelector(state => state.cart.shoppingcart)
    const shoppingCartTotalAmount = useSelector(state => state.cart.totalCartAmount)
-
 
    return (
       <div className="min-width">

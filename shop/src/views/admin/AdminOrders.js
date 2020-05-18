@@ -16,6 +16,7 @@ export default function AdminOrders() {
     return (
         <div className="vh-100 text-center">
             <div className="h-100 d-flex flex-column justify-content-center align-items-center">
+                
                 <h1>Orderhantering</h1>
 
                 <MDBDropdown>

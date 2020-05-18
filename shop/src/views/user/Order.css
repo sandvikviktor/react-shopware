@@ -1,44 +1,66 @@
-#orders{
+/* Userheader */
+#userHeader{
+    height: 15.5em;
+    background-color: #222433;
+}
+#userName{
+    left: 15%;
+    top: 48%;
+}
+.orders{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+#profileBorder{
+    margin-top: 8em;
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+}
+#profile{
+    margin-top: 0.8em !important;
+    height: 13.5em;
+    width: 13.5em;
+    border-radius: 50%;
+    margin: auto;
+}
+#profile img{
+    height: 14em;
+    width: 14em;
 }
 
+/* Order List */
 .order{
-    /* border-bottom: 1px solid black; */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-gap: 2em;
+    width: 40em;
 }
 
+/* Order Item */
 .order-item{
-    width: 30em;
-    padding-right: 0;
-    padding-left: 1.5em;
+    width: 40em;
+    min-height: 21em;
+    padding-left: 0.6em;
     padding-bottom: 5em;
 }
-
-
-#order-total-row{
-    bottom: 0;
-    background: rgb(226, 226, 226);
-    width: 30em;
-    margin-left: -1.5em;
-}
-
 .overflow {
     max-height: 16em;
     overflow-y: scroll !important;
 }
-
 .order ul{
     padding: 0;
 }
-
 .order li {
     list-style: none;
     margin-right: 1em;
 }
-
+#order-total-row{
+    bottom: 0;
+    background: rgb(226, 226, 226);
+    width: 40em;
+    height: 4em;
+    margin-left: -0.6em;
+}
 #btn-delete{
     top: -4em;
     left: -4em;

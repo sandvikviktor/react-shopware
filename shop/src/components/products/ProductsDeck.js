@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import './Products.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../store/actions/productsActions'
 import ProductsCard from './ProductsCard';
@@ -15,7 +14,7 @@ export default function ProductsDeck() {
   },[dispatch])
 
   return (
-    <div className="container-fluid text-white">
+    <div id="productsDeck" className="container-fluid text-white">
       <section>
         {/* <!-- Grid row --> */}
         <div className="row pt">

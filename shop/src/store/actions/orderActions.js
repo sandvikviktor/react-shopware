@@ -28,17 +28,23 @@ export const setOrdersById = (orders) => {
     }
 }
 
-export const updateOrderStatus = (order) => {
+export const updateOrderStatus = (orderId) => {
     return dispatch => {
-        return axios.put('http://localhost:9999/api/orders/updateorder/' + order.id)
+        return axios.put('http://localhost:9999/api/orders/updateorder/' + orderId)
             .then(res => {
                 if(res.status === 200) {
                     console.log('Order updated');
-                    console.log(order);
                 }
-                else {
-                    console.log('Failed to update');
-                    console.log(res.status);
+            })
+    }
+}
+
+export const deleteOrder = (orderId) => {
+    return dispatch => {
+        return axios.delete('http://localhost:9999/api/orders/deleteorder/' + orderId)
+            .then(res => {
+                if(res.status === 200) {
+                    console.log('Order deleted');
                 }
             })
     }

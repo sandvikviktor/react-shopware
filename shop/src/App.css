@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700&display=swap');
 
 /* Body */
 html {
@@ -8,7 +9,7 @@ html {
   --thumbBG: rgb(221, 221, 221);
 }
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;  
   font-weight: 500 !important;
   background-color: rgb(255, 255, 255);
   color: black;
@@ -17,20 +18,24 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
-body::-webkit-scrollbar, #orderItem::-webkit-scrollbar {
+body::-webkit-scrollbar, #order-card::-webkit-scrollbar {
   width: 11px;
 }
-body::-webkit-scrollbar-track, #orderItem::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, #order-card::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
 }
-body::-webkit-scrollbar-thumb, #orderItem::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, #order-card::-webkit-scrollbar-thumb {
 
   background-color: var(--thumbBG) ;
   border-radius: 6px;
   border: 3px solid var(--scrollbarBG);
 }
 
+
 /* Utilities */
+.bg-color {
+  background-color: #222433;
+}
 .min-height {  
   min-height: 100vh;  
 }
@@ -46,6 +51,12 @@ body::-webkit-scrollbar-thumb, #orderItem::-webkit-scrollbar-thumb {
 .overflow {
   overflow: hidden !important;
 }
+.btn-indigo{
+  background-color: rgb(71, 83, 161) !important;
+}
+.image-width {
+  max-width: 100px;
+}
 
 /* Elements */
 td{
@@ -57,10 +68,65 @@ li {
   list-style: none;
 }
 
+
+/* Navbar */
+.user-dropdown{
+  min-width: 10em;
+}
+
+
+/* Landing Page */
+#landing{
+  background-color: #222433;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  color: rgb(236, 236, 236);
+}
+#landing a{
+  color: black;
+}
+#landing .left-top {
+  height: 53%;
+  background-color: #2C3147;
+}
+#landing .left-bottom {
+  height: 47%;
+}
+#landing .right-top {
+  height: 35%;
+}
+#landing .right-bottom {
+  height: 65%;
+  background-image: url('./shopimage.png');
+  background-size: cover;
+  padding-left: 5em;
+}
+#landing .landing-title {
+  padding-top: 6.5em;
+  letter-spacing: 0.3em;
+}
+.landing-title h1{
+  font-size: 3em;
+  letter-spacing: 0.15em;
+  margin-left: -3px
+}
+.landing-title button{
+  color: white;
+  background-color: rgba(98, 114, 219, 0.678);
+}
+.landing-title button:hover{
+  background-color: rgba(98, 114, 219, 0.87);
+  color: white;
+}
+
+
 /* Carousel */
 #carousel{
-  width: 400px;
-  height: 400px;  
+  width: 360px;
+  height: 360px;
+  right: 0;
+  top: 35%;
 }
 #nyheter{
   color: rgb(37, 37, 37);
@@ -70,20 +136,20 @@ li {
   right: 0;
   z-index: 10;
 }
-#landing{
-  background-color: rgb(245, 245, 245);
-}
 .carousel{
-  width: 400px;
-  height: 400px;
+  width: 360px;
+  height: 360px;
   background: white !important;
   transition: 0.6s ease;
-  -webkit-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
-  -moz-box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
-  box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.18);
+  position: static !important;
 }
 .slide{
   background: white !important;
+}
+.slide:hover{
+  transition: 0.2s ease;
+  transform: scale(1.1);
+  padding-bottom: 3em;
 }
 .carousel img{
   margin-top: 3em;
@@ -92,12 +158,36 @@ li {
 }
 .carousel h5{
   background: white;
-  margin: 0;
+  margin-top: -0.4em !important;
 }
-.control-dots{
-  padding-right: 2.5em;
+.carousel.carousel-slider .control-arrow {
+  top: 0;
+  color: #fff;
+  font-size: 26px;
+  bottom: 90% !important;
+  margin-top: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 }
-.control-dots .dot.selected{
-  background: rgb(255, 251, 251) !important;
+.carousel .control-next.control-arrow {
+  left: -1.4em;
+  top: -1px !important;
+  padding-left: 0.4em !important;
 }
+.carousel .control-prev.control-arrow {
+  position: absolute !important;
+  left: -2.76em !important;
+  top: -1px !important;
+  padding-right: 0.4em !important;
+}
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+  opacity: 1 !important;
+  border: 1px solid #2b2f4dcc !important;
+  background-color: rgb(68, 69, 105) !important;
+}
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow:hover{
+  background-color: rgb(95, 97, 148) !important;
+}
+
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import '../../App.css'
-import SavedOrders from '../../components/user/SavedOrders'
+import SavedOrders from '../../components/orders/SavedOrders'
 
 export default function Orders() {
     return (
-        <div className="pt text-center">
-            <h1>Aktuella Ordrar</h1>
+        <div>
+            {/* <h1>Aktuella Ordrar</h1> */}
             <SavedOrders />
         </div>
     )

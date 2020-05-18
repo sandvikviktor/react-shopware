@@ -1,5 +1,4 @@
 import React from 'react'
-import '../navigation/Nav.css'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { userLogout } from '../../store/actions/userActions'

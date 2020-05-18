@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/navigation/Navbar';
 import ProductsDeck from './components/products/ProductsDeck';
 import ProductDetails from './views/products/ProductDetails'
-import Checkout from './views/Checkout'
+import Checkout from './views/checkout/Checkout'
 import Login from './views/forms/Login'
 import Register from './views/forms/Register'
 import NotFound from './views/NotFound'
@@ -15,7 +15,8 @@ import Orders from './views/user/Orders';
 import Manage from './views/user/Manage';
 
 import AdminUserOrderList from './views/admin/AdminUserOrderList';
-import ProtectedRoute from './routes/ProtectedRoute';
+import UserRoute from './routes/UserRoute';
+import AdminRoute from './routes/AdminRoute';
 
 
 function App() {
@@ -33,13 +34,13 @@ function App() {
           <Route exact path="/login" component={Login}/>
 
           {/* Admin Routes */}
-          <ProtectedRoute exact path="/admin" component={Admin}/>
-          <ProtectedRoute exact path="/admin/orders" component={AdminOrders}/>
-          <ProtectedRoute exact path="/admin/orders/user/:id" component={AdminUserOrderList}/>
+          <AdminRoute exact path="/admin" component={Admin}/>
+          <AdminRoute exact path="/admin/orders" component={AdminOrders}/>
+          <AdminRoute exact path="/admin/orders/user/:id" component={AdminUserOrderList}/>
 
           {/* User Routes*/}
-          <ProtectedRoute exact path="/orders" component={Orders}/>
-          <ProtectedRoute exact path="/manage" component={Manage}/>
+          <UserRoute exact path="/orders" component={Orders}/>
+          <UserRoute exact path="/manage" component={Manage}/>
           
           <Route path="*" component={NotFound}/>
         </Switch>

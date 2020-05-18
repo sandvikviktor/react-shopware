@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { userRegister } from '../../store/actions/userActions'
 
-export default function Register() {
+export default function Register(props) {
 
     const dispatch = useDispatch()
 
@@ -13,17 +13,11 @@ export default function Register() {
     const password = useRef()
     const admin = useRef()
 
-    useEffect(() => {
-        console.log(admin.current.checked);
-    }, [admin])
-
-
     const regSubmit = (e) => {
         e.preventDefault()
 
         if(firstName.current.value === '' || lastName.current.value === '' || email.current.value === '' || password.current.value === '')
             return
-
     
         if(admin.current.checked) {
             dispatch(userRegister({
@@ -33,6 +27,7 @@ export default function Register() {
                 role: 'admin',
                 password: password.current.value             
            }))
+           props.history.replace('/login')
         } else {
             dispatch(userRegister({
                 firstName: firstName.current.value,
@@ -41,6 +36,7 @@ export default function Register() {
                 role: 'user',
                 password: password.current.value             
            }))
+           props.history.replace('/login')
         }
 
     }
@@ -66,6 +62,7 @@ export default function Register() {
                             type="text"
                             className="form-control"
                             placeholder="Förnamn"
+                            autoComplete="off"
                         />
                         </div>
                         <div className="col">
@@ -75,6 +72,7 @@ export default function Register() {
                             type="text"
                             className="form-control"
                             placeholder="Efternamn"
+                            autoComplete="off"
                         />
                         </div>
                     </div>
