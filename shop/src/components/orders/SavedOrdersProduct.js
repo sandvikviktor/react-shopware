@@ -3,8 +3,7 @@ import '../../views/user/Order.css'
 
 export default function SavedOrdersProduct({ orders }) {
 
-    const orderStatus = orders.status
-   
+    const orderStatus = orders.status   
 
     useEffect(() => {
         // console.log(orders);

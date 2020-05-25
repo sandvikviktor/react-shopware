@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserById } from '../../store/actions/userActions';
 import AdminUserOrder from './AdminUserOrder';
 import { getOrdersById } from '../../store/actions/orderActions';
-import UserHeader from '../../components/user/UserHeader';
+import UserHeader from '../../components/orders/UserHeader';
 
 export default function AdminUserOrders({ match }) {
 

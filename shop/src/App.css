@@ -127,6 +127,7 @@ li {
   height: 360px;
   right: 0;
   top: 35%;
+  background: white
 }
 #nyheter{
   color: rgb(37, 37, 37);
@@ -145,16 +146,17 @@ li {
 }
 .slide{
   background: white !important;
-}
-.slide:hover{
-  transition: 0.2s ease;
-  transform: scale(1.1);
-  padding-bottom: 3em;
+  
 }
 .carousel img{
   margin-top: 3em;
   padding: 2em;
   background: white !important;
+  background-clip: content-box !important;
+  transition: 0.3s ease; 
+}
+.slide:hover img{
+  transform: scale(1.1);
 }
 .carousel h5{
   background: white;
