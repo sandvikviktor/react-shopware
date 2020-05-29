@@ -18,7 +18,7 @@ export default function ProductDetails({match}) {
     
     if(product) {
         return (
-            <div className="pt container-fluid bg-white ">
+            <div className="pt container-fluid bg-white pb-5">
                 {/* <!--Section: Content--> */}
                 <section className="text-center pt-5">
                 {/* <!-- Section heading --> */}

@@ -8,7 +8,7 @@ export default function ProductsCard({ product }) {
   }, [])
 
   return (
-    <div className="col-lg-3 col-md-12 mb-4">
+    <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
       <div className="card card-ecommerce">
         <div className="view overlay">
           <img src={product.image} className="img-fluid" alt="" />
@@ -21,7 +21,7 @@ export default function ProductsCard({ product }) {
           <p className="card-text">{product.shortDescription}</p>
           <div className="card-footer pb-0 bg-white">
             <div className="row mb-0">
-              <span className="float-left mt-2"><strong>{product.price} SEK</strong></span>
+              <span className="float-left mt-2 dark-grey-text"><strong>{product.price} SEK</strong></span>
               <span className="float-right ml-auto">
                 <Link to={`/products/details/${product._id}`} type="button" className="btn btn-sm btn-indigo" data-toggle="tooltip" data-placement="top">Visa Produkt</Link>
               </span>
